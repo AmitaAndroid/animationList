@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Animaion List</string>
+    <string name="title_activity_animation">AnimationActivity</string>
 </resources>
