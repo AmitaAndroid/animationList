@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(MainActivity.this, AnimationActivity.class);
                 intent.putExtra("position",i);
+                startActivity(intent);
              }
             });
 
