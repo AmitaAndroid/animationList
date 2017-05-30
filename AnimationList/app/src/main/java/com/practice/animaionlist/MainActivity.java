@@ -1,18 +1,18 @@
 package com.practice.animaionlist;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     ListView listView;
     ArrayAdapter<String> adapter;
-    String[] animationType={"anim1"};
+    String[] animationType={"Scale","Translate","Rotate", "Fade In","Fade Out", "Parallel","Sequential"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void intiView() {
         listView=(ListView)findViewById(R.id.list_animation);
-        adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 , animationType);
+        adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1 , animationType);
         listView.setAdapter(adapter);
     }
 }
