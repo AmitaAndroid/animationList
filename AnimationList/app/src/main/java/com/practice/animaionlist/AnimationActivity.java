@@ -31,36 +31,36 @@ public class AnimationActivity extends Activity {
                 ImageView myView = new ImageView(getApplicationContext());
                 myView.setScaleType(ImageView.ScaleType.FIT_XY);
                 myView.setLayoutParams(new
-                        ImageSwitcher.LayoutParams(LayoutParams.WRAP_CONTENT,
-                        LayoutParams.WRAP_CONTENT));
+                        ImageSwitcher.LayoutParams(LayoutParams.MATCH_PARENT,
+                        LayoutParams.MATCH_PARENT));
                 return myView;
             }
         });
         imageSwitcherHandler = new Handler(Looper.getMainLooper());
-        int position = getIntent().getIntExtra("position", 0);
+        String animationType = getIntent().getStringExtra("animationType");
 
-//        runSlider();
+//"Scale","Translate","Rotate", "Fade In","Fade Out", "Parallel","Sequential"
 
-        switch (position) {
-            case 0:
+        switch (animationType) {
+            case "Scale":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);
                 break;
-            case 1:
+            case "Translate":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);
                 break;
-            case 2:
+            case "Rotate":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
                 break;
-            case 3:
+            case "Fade In":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
                 break;
-            case 4:
+            case "Fade Out":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
                 break;
-            case 5:
+            case "Parallel":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.parallel);
                 break;
-            case 6:
+            case "Sequential":
                 animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.sequential);
                 break;
             default:
@@ -109,77 +109,5 @@ public class AnimationActivity extends Activity {
                 imageSwitcherHandler.postDelayed(this, 3000);
             }
         });
-/*    private void runSlider() {
-        Thread timer = new Thread()
-    {
-        public void run()
-        {
-            try
-            {
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.a);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.f);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.c);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.d);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.e);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.b);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.g);
-                    }
-                });
-
-                sleep(2000);
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        imageSwitcher.setImageResource(R.drawable.h);
-                        index=10;
-                    }
-                });
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
-        }
-    };
-        timer.start();
-    }*/
     }
 }

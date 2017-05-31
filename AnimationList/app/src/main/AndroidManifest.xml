@@ -19,6 +19,7 @@
             android:name=".AnimationActivity"
             android:label="@string/title_activity_animation"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".FootballActivity"></activity>
     </application>
 
 </manifest>
