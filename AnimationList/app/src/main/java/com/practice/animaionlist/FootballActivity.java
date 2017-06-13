@@ -27,6 +27,9 @@ public class FootballActivity extends Activity{
             case "Overshoot":
                 animation = AnimationUtils.loadAnimation(this, R.anim.anticipate_overdose_eg);
                 break;
+            case "Mix":
+                animation=AnimationUtils.loadAnimation(this, R.anim.mix_interpolator);
+                break;
             default:
                 animation = AnimationUtils.loadAnimation(this, R.anim.anticipate_interpolator_eg);
                 break;

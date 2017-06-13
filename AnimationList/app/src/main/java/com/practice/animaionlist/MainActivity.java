@@ -38,16 +38,27 @@ public class MainActivity extends Activity {
                 final Dialog dialog = new Dialog(MainActivity.this);
                 dialog.setContentView(R.layout.football_animation_list);
                 dialog.setTitle("Choose animation for android");
+                dialog.setCancelable(true);
+                dialog.setTitle("ListView");
+                dialog.show();
 
                 ArrayAdapter<String> adapter;
                 ListView lv = (ListView ) dialog.findViewById(R.id.football_lv);
-                final String[] footballAnimationType={"Anticipate","Overshoot"};
+                final String[] footballAnimationType={"Anticipate","Overshoot","Mix"};
 
                 adapter=new ArrayAdapter<>(MainActivity.this,android.R.layout.simple_list_item_1 , footballAnimationType);
                 lv.setAdapter(adapter);
 
-                lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent in= new Intent(MainActivity.this, FootballActivity.class);
+                        in.putExtra("footballAnimation",footballAnimationType[i]);
+                        dialog.dismiss();
+                        startActivity(in);
+                    }
+
+                    /*@Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         Intent i= new Intent(MainActivity.this, FootballActivity.class);
                         i.putExtra("footballAnimation",footballAnimationType[position]);
@@ -58,11 +69,8 @@ public class MainActivity extends Activity {
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
 
-                    }
+                    }*/
                 });
-                dialog.setCancelable(true);
-                dialog.setTitle("ListView");
-                dialog.show();
 //                startActivity(new Intent(MainActivity.this, FootballActivity.class));
             }
         });
