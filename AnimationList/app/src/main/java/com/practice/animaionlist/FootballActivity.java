@@ -19,7 +19,6 @@ public class FootballActivity extends Activity{
 
         String footballAnimation=getIntent().getStringExtra("footballAnimation");
 
-        //final String[] footballAnimationType={"Anticipate","Overshoot"};
         switch (footballAnimation){
             case "Anticipate":
                 animation = AnimationUtils.loadAnimation(this, R.anim.anticipate_interpolator_eg);
